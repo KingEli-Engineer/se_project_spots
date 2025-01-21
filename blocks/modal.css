@@ -1,0 +1,132 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  padding: 0 16px;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__container {
+  background: #fff;
+  margin: 0;
+  padding: 32px 50px;
+  max-width: 730px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  background-color: #fff;
+  opacity: 0.4;
+}
+
+.modal__close-btn:hover {
+  opacity: 1;
+}
+
+.modal__title {
+  line-height: 1;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0 0;
+  gap: 32px;
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__input {
+  padding: 16px 12px;
+  border-radius: 8px;
+  border-color: rgba(33, 33, 33, 0.4);
+}
+
+.modal__input::placeholder {
+  color: rgba(33, 33, 33, 0.3);
+}
+
+.modal__input:hover {
+  border-color: rgba(33, 33, 33, 1);
+}
+
+.modal__save-btn {
+  width: 156px;
+  padding: 18px 0;
+  line-height: 1;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  border-style: none;
+}
+
+.modal__save-btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 627px) {
+  .modal {
+    padding: 0 10px;
+  }
+
+  .modal__container {
+    padding: 12px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__form {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .modal__save-btn {
+    width: 100%;
+  }
+}
