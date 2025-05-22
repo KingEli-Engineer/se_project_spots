@@ -140,8 +140,7 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  newPostCaptionInput.value = "";
-  newPostLinkInput.value = "";
+  newPostForm.reset();
 
   closeModal(newPostModal);
 }
