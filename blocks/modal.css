@@ -12,7 +12,7 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-  padding: 0 16px;
+  padding: 0 10px;
 }
 
 .modal_type_preview {
@@ -159,10 +159,6 @@
 }
 
 @media screen and (max-width: 627px) {
-  .modal {
-    padding: 0 10px;
-  }
-
   .modal__container {
     padding: 12px;
   }
@@ -174,6 +170,10 @@
 
   .modal__image {
     max-width: unset;
+  }
+
+  .modal__caption {
+    font-size: 16px;
   }
 
   .modal__close-btn {
