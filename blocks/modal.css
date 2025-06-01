@@ -139,6 +139,7 @@
 }
 
 .modal__save-btn_type_disabled {
+  pointer-events: none;
   opacity: 50%;
 }
 

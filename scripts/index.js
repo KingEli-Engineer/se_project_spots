@@ -29,6 +29,9 @@ const initialCards = [
   },
 ];
 
+const modals = document.querySelectorAll(".modal");
+const closeButtons = document.querySelectorAll(".modal__close-btn");
+
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -96,24 +99,28 @@ function getCardElement(data) {
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeModal(modal);
-    }
-  });
-
-  modal.addEventListener("click", function (event) {
-    if (event.target.classList.contains("modal")) {
-      closeModal(modal);
-    }
-  });
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
-function overlayClose() {}
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    closeModal(openedModal);
+  }
+}
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (e) => {
+    if (e.target === modal) {
+      closeModal(modal);
+    }
+  });
+});
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -126,20 +133,14 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
-
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
-});
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
 
-previewModalCloseBtn.addEventListener("click", function () {
-  closeModal(previewModal);
+  button.addEventListener("click", () => closeModal(modal));
 });
 
 function handleEditProfileSubmit(evt) {
